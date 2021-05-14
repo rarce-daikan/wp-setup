@@ -16,7 +16,7 @@ git clone https://github.com/nilovelez/intentionally-blank.git wp-setup/intentio
 To start the stack
 
 ```shell
-sudo docker-compose wp-setup/wordpress-stack.yml up
+sudo docker-compose -d -f wp-setup/docker-compose.yml up -d
 ```
 The previous command will generate 2 containers, each with a specific name/id, you could find the container id/name with the command 'sudo docker ps'
 
@@ -29,7 +29,8 @@ sudo docker cp wp-setup/intentionally-blank  [container name/id]:/var/www/html/w
 Once finished, you may dispose of the containers with the following command
 
 ```shell
-sudo docker-compose -f wp-setup/wordpress-stack.yml down
+sudo docker-compose -f wp-setup/docker-compose.yml down
+sudo docker volume rm wp-setup_wordpress wp-setup_db
 ```
 
 Using [Intentionally blank theme](https://github.com/nilovelez/intentionally-blank) for testing
